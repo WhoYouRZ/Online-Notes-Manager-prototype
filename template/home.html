@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="home-container">
+    <h2>Welcome, {{ username }} 👋</h2>
+    <p>Add a new note below:</p>
+
+    <form method="POST" action="{{ url_for('add_note') }}" class="note-form">
+        <label>Title</label>
+        <input type="text" name="title" placeholder="Note title" required>
+
+        <label>Content</label>
+        <textarea name="content" placeholder="Write your note..." rows="4" required></textarea>
+
+        <button type="submit">Save Note</button>
+    </form>
+
+    <p class="form-link">
+        <a href="{{ url_for('my_notes') }}">📜 View My Notes</a>
+    </p>
+</div>
+{% endblock %}
